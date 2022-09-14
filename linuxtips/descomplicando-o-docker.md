@@ -39,8 +39,29 @@ $ sudo docker container run -d -m 128M --cpus 0.5 nginx
 $ sudo docker container update --cpus 0.2 nome_container
 $ sudo docker container update --cpus 0.4 --memory 64M nome_container
 
-# Volumes
+# Volumes tipo bind
 $ mkdir /opt/giropops
 $ docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops debian
+-- opção somente leitura ro
+$ docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops,ro debian
+
+
+# Volumes tipo volume
+$ docker volume ls
+$ docker volume create giropops
+$ docker volume inspect giropops
+
+$ docker container run -ti --mount type=volume,src=giropops,dst=/giropops debian
+
+# criar arquivo dentro do volume via exec
+$ docker container exec -ti container_id touch /paht/name_file
+
+
+
+
+
+
+
+
 
 
