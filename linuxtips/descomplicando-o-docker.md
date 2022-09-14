@@ -39,6 +39,8 @@ $ sudo docker container run -d -m 128M --cpus 0.5 nginx
 $ sudo docker container update --cpus 0.2 nome_container
 $ sudo docker container update --cpus 0.4 --memory 64M nome_container
 
-
+# Volumes
+$ mkdir /opt/giropops
+$ docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops debian
 
 
