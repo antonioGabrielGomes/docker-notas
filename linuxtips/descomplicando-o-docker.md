@@ -53,12 +53,25 @@ $ docker volume inspect giropops
 
 $ docker container run -ti --mount type=volume,src=giropops,dst=/giropops debian
 
+
+# remover volume
+$ docker volume rm giropops
+
 # criar arquivo dentro do volume via exec
 $ docker container exec -ti container_id touch /paht/name_file
 
+#
+# Data Only e Prune
+$ docker volume prune
+$ docker container prune
 
 
+Compartilhamento de volume - APENAS DIDÁTICO:
+$ docker container create -v /data --name dbdados centos
 
+$ docker container run -d -p 5432:5432 --name pgsql1 --volumes-from dbdados -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
+
+$ docker container run -d -p 5433:5432 --name pgsql2 --volumes-from dbdados -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
 
 
 
