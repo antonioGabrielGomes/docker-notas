@@ -50,6 +50,17 @@ Criar Volume do tipo volume
 # docker image tag id_imagem ubuntu_tag:1.0
 
 
+# Docker hub
+# mudar nome da imagem, ex: 
+# docker image tag [image_id] antonioggca000/nomeDaImagem:1.0.0
+# docker login 
+# docker push antonioggca000/nomeDaImage:1.0.0
+
+# Docker Registry
+# docker container run -d -p 5000:5000 --restart=always --name registry registry:2
+# docker image tag [image_id] localhost:5000/nome_da_image:1.0.0
+# docker image push localhost/nome_da_image:1.0.0
+
 
 FROM debian
 
